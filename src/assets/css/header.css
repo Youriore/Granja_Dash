@@ -1,0 +1,31 @@
+.contenHeader {
+    width: 100vw;
+    height: 70px;
+    background-color: #fff;
+    padding: 5px;
+    
+}
+
+.contenimg {
+    width: 250px;
+    
+}
+
+nav {
+    width: 100px;
+    height: 80vh;
+    background-color: #f5eeee;
+}
+
+.iconNav {
+    font-size: 15px;
+}
+
+.contenLink {
+    width: 60px !important;
+    height: 55px !important;
+}
+
+
+
+
