@@ -81,10 +81,10 @@ export default function StockAlimentos({ onUpdated }) {
         header: "ACCIÓN",
         enableSorting: false,
         cell: (info) => (
-          <div className="d-flex gap-2">
+          <div className="modern-table-actions">
             <button
               type="button"
-              className="btn btn-warning btn-sm"
+              className="modern-btn modern-btn-warning"
               data-bs-toggle="modal"
               data-bs-target="#modalStockEditarAlimentos"
               onClick={() => setAlimentoSeleccionado(info.row.original)}

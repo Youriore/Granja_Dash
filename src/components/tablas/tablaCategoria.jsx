@@ -53,7 +53,7 @@ export default function TablaCategoria({ categoriasData, onDataUpdate }) {
             accessorKey: "enUso", 
             enableSorting: true,
             cell: (info) => (
-                <span className={`badge ${info.row.original.enUso ? 'bg-warning text-dark' : 'bg-success'}`}>
+                <span className={`modern-badge ${info.row.original.enUso ? 'bg-warning text-dark' : 'bg-success'}`}>
                     {info.row.original.enUso ? "En uso" : "Sin uso"}
                 </span>
             )
@@ -62,10 +62,10 @@ export default function TablaCategoria({ categoriasData, onDataUpdate }) {
             header: "ACCIÓN",
             enableSorting: false,
             cell: (info) => (
-                <div className="d-flex gap-2">
+                <div className="modern-table-actions">
                     <button
                         type="button"
-                        className="btn btn-danger btn-sm "
+                        className="modern-btn modern-btn-danger"
                         onClick={() => handleDelete(info.row.original.id_categoria)}
                         disabled={info.row.original.enUso}
                     >
@@ -73,7 +73,7 @@ export default function TablaCategoria({ categoriasData, onDataUpdate }) {
                     </button>
                     <button
                         type="button"
-                        className="btn btn-warning btn-sm"
+                        className="modern-btn modern-btn-warning"
                         data-bs-toggle="modal"
                         data-bs-target="#ModalEditarTablaCategoria"
                         onClick={() => setCategoriaSeleccionada(info.row.original)}

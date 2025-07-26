@@ -2,19 +2,30 @@
 import { Header } from "../components/header.jsx";
 import { Nav } from "../components/nav.jsx";
 import TablaLotesAnimales from "../components/tablas/tablaLotesAnimales.jsx";
+import { useState } from "react";
 
 export function LoteAnimales() {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
+
+    const closeSidebar = () => {
+        setSidebarOpen(false);
+    };
+
     return (
-        <>
-            <div className="main-container">
-                <Header administrador="jesus" />
-                <div className="content-wrapper">
-                    <Nav />
-                    <main className="page-content">
+        <div className="app-layout w-100">
+            <Header onToggleSidebar={toggleSidebar} />
+            <div className="main-layout w-100">
+                <Nav isOpen={sidebarOpen} onClose={closeSidebar} />
+                <main className="main-content w-100">
+                    <div className="content-wrapper">
                         <TablaLotesAnimales />
-                    </main>
-                </div>
+                    </div>
+                </main>
             </div>
-        </>
+        </div>
     )
 }

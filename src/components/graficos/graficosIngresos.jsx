@@ -29,38 +29,107 @@ const data = {
 
 const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       position: 'top',
+      labels: {
+        padding: 15,
+        boxWidth: 12,
+        usePointStyle: true
+      }
     },
     title: {
       display: true,
       text: 'Resumen de Ventas 2024',
+      padding: {
+        bottom: 10
+      },
+      font: {
+        size: 14
+      }
     },
+    tooltip: {
+      enabled: true,
+      mode: 'index',
+      intersect: false,
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      titleFont: {
+        size: 12
+      },
+      bodyFont: {
+        size: 13
+      },
+      padding: 10,
+      cornerRadius: 4
+    }
   },
   scales: {
+    x: {
+      grid: {
+        display: false
+      },
+      ticks: {
+        padding: 5
+      }
+    },
     y: {
       beginAtZero: true,
-    },
+      grid: {
+        drawBorder: false
+      },
+      ticks: {
+        padding: 5
+      }
+    }
   },
-}
+  layout: {
+    padding: 10
+  },
+  interaction: {
+    mode: 'nearest',
+    axis: 'x',
+    intersect: false
+  }
+};
 
 export default function Graficos() {
+  const lineChartOptions = {
+    ...options,
+    tension: 0.3,
+    plugins: {
+      ...options.plugins,
+      title: {
+        ...options.plugins.title,
+        text: 'Proyección de Ganancias'
+      }
+    }
+  };
+
   return (
-    <div className="d-flex justify-content-center gap-4 d-flex flex-wrap ">
-      <fieldset className="border p-3 rounded-3" style={{width: "530px"}}>
-        <legend className="float-none w-auto px-2 fs-5 fw-semibold">Resumen de Ingresos</legend>
-        <div className="p-2">
-          <Bar data={data} options={options} />
+    <div className="container-fluid p-0">
+      <div className="row g-3">
+        <div className="col-12 col-lg-6">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-white border-0">
+              <h5 className="card-title mb-0">Resumen de Ingresos</h5>
+            </div>
+            <div className="card-body p-2" style={{ minHeight: '300px' }}>
+              <Bar data={data} options={options} />
+            </div>
+          </div>
         </div>
-      </fieldset>
-      
-      <fieldset className="border p-3 rounded-3" style={{width: "530px"}}>
-        <legend className="float-none w-auto px-2 fs-5 fw-semibold">Proyección de Ganancias</legend>
-        <div className="p-2">
-          <Line data={data} options={{ ...options, tension: 0.3 }} />
+        <div className="col-12 col-lg-6">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-white border-0">
+              <h5 className="card-title mb-0">Proyección de Ganancias</h5>
+            </div>
+            <div className="card-body p-2" style={{ minHeight: '300px' }}>
+              <Line data={data} options={lineChartOptions} />
+            </div>
+          </div>
         </div>
-      </fieldset>
+      </div>
     </div>
   )
 }

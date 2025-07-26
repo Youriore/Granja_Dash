@@ -44,7 +44,7 @@ export default function TablaRazaAnimal({ razasData, onDataUpdate }) {
       accessorKey: "enUso", 
       enableSorting: true,
       cell: (info) => (
-        <span className={`badge ${info.row.original.enUso ? 'bg-warning text-dark' : 'bg-success'}`}>
+        <span className={`modern-badge ${info.row.original.enUso ? 'bg-warning text-dark' : 'bg-success'}`}>
           {info.row.original.enUso ? "En uso" : "Sin uso"}
         </span>
       )
@@ -53,19 +53,18 @@ export default function TablaRazaAnimal({ razasData, onDataUpdate }) {
       header: "ACCIÓN",
       enableSorting: false,
       cell: (info) => (
-        <div className="d-flex gap-2">
+        <div className="modern-table-actions">
           <button
             type="button"
-            className="btn btn-danger btn-sm "
+            className="modern-btn modern-btn-danger"
             onClick={() => handleDelete(info.row.original.id_raza)}
             disabled={info.row.original.enUso}
-
           >
             Eliminar
           </button>
           <button
             type="button"
-            className="btn btn-warning btn-sm"
+            className="modern-btn modern-btn-warning"
             data-bs-toggle="modal"
             data-bs-target="#ModalEditarRaza"
             onClick={() => setRazaSeleccionada(info.row.original)}

@@ -1,4 +1,6 @@
 import { BrowserRouter, Link } from 'react-router-dom'
+import "./assets/css/variables.css"
+import "./assets/css/layout.css"
 import "./assets/css/login.css"
 import {RouterSystem} from './routers/router.jsx'
 import "./assets/css/style.css"
