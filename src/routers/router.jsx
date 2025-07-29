@@ -9,7 +9,7 @@ import { ProductoAnimales } from '../pages/productoAnimales.jsx'
 import { Routes, Route } from "react-router-dom";
 import { AuthRoute } from "../auth/protectedRouter";
 
-//Rutas protegidas
+//Rutas protegidas con AuthRoute
 export function RouterSystem() {
     return (
         <Routes>
